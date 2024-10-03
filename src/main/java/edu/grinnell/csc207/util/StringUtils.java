@@ -9,7 +9,7 @@ import java.io.PrintWriter;
  * Assorted utilities for working with strings.
  * 
  * @author Samuel A. Rebelsky
- * @author Your Name Here
+ * @author Bonsen and Maral
  */ 
 public class StringUtils {
   // +------------------+--------------------------------------------
@@ -19,9 +19,38 @@ public class StringUtils {
   /**
    * Determine whether the parens match in string.
    */
-  public static boolean checkMatching(String str) {
+  public static boolean checkMatching(String str) throws Exception {
+    boolean bool = false;
     Stack<Character> parens = new LinkedStack<Character>();
-    return false;       // STUB
+    
+    for (int i = 0; i < str.length(); i++){
+      if (str.charAt(i) == '(' || str.charAt(i) == '[') {
+        parens.push(str.charAt(i));
+      }
+      if (str.charAt(i)== ')') {
+        if (parens.peek() == '(') {
+          parens.pop();
+          bool = true;
+        } else {
+          throw new Exception("Not matching (");
+        }
+      }
+      if (str.charAt(i) == ']') {
+        if (parens.peek() == '[') {
+          parens.pop();
+          bool = true;
+        } else {
+          throw new Exception("Not matching [");
+        }
+      }
+    } //for
+
+    if (!parens.isEmpty()) {
+      throw new Exception("Mismatched");
+    }
+    else {
+      return bool;
+    }
   } // checkMatching
 } // class StringUtils    
 
