@@ -24,6 +24,17 @@ public class TestPriorityQueue {
     q.put(8);
     q.put(1);
     assertEquals(1, q.peek(), "stupid test");
-  } // test2()
+  } // testSet()
+
+  @Test
+  public void testGet() throws Exception {
+    BuiltinPriorityQueue<Integer> q = new BuiltinPriorityQueue<>(4, null);
+
+    q.put(2);
+    q.put(3);
+    q.put(4);
+    q.put(5);
+    assertEquals(2, q.get(), "Testing Getting for BuiltinPriorityQueue");
+  }
 
 } // class TestPriorityQueue
