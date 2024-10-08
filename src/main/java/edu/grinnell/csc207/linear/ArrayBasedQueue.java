@@ -116,7 +116,7 @@ public class ArrayBasedQueue<T> implements Queue<T> {
    * Get the index of the back of the queue. The back is where we add the next element.
    */
   int back() {
-    return this.size;
+    return this.front + this.size;
   } // back()
 
 } // class ArrayBasedQueue<T>
