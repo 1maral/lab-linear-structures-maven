@@ -2,6 +2,7 @@ package edu.grinnell.csc207.experiments;
 
 import edu.grinnell.csc207.linear.ArrayBasedQueue;
 import edu.grinnell.csc207.linear.ReportingLinearStructure;
+import java.io.PrintWriter;
 
 /**
  * A very simple experiment with ArrayBasedQueues.
@@ -13,9 +14,9 @@ public class ArrayBasedQueueExperiment {
   /**
    * Do all the work. (Well, make the helpers do all the work.)
    */
-  public static void main(String[] args) throws Exception {
+   public static void main(String[] args) throws Exception {
     ReportingLinearStructure<String> expt =
-        new ReportingLinearStructure<String>(new ArrayBasedQueue<String>(8), "expt.");
+        new ReportingLinearStructure<String>(new ArrayBasedQueue<String>(4), "expt.", new PrintWriter(System.err, true));
     // Put in a few values, then remove two
     expt.isEmpty();
     expt.put("a");
@@ -24,13 +25,15 @@ public class ArrayBasedQueueExperiment {
     expt.peek();
     expt.put("c");
     expt.peek();
-    expt.put("d");
     expt.get();
     expt.peek();
     expt.get();
     expt.put("x");
     expt.peek();
     expt.get();
+    expt.get();
+    expt.put("c");
+    expt.put("x");
     expt.get();
     expt.get();
 
