@@ -3,6 +3,8 @@ package edu.grinnell.csc207.linear;
 import java.io.PrintWriter;
 import java.util.Iterator;
 
+import edu.grinnell.csc207.experiments.PriorityQueueExperiment;
+
 /**
  * LinearStructures that report on the operations they perform.
  *
@@ -57,6 +59,10 @@ public class ReportingLinearStructure<T> implements LinearStructure<T> {
   public ReportingLinearStructure(LinearStructure<T> ls) {
     this(ls, new PrintWriter(System.out, true), "");
   } // ReportingLinearStructure(LinearStructure<T>)
+
+  public ReportingLinearStructure(LinearStructure<T> ls, String name, PrintWriter err){
+    this(ls, err, name);
+  }
 
   // +-------------------------+-----------------------------------------
   // | LinearStructure Methods |
