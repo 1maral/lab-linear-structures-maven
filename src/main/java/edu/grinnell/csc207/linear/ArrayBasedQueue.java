@@ -163,6 +163,7 @@ class ArrayBasedQueueIterator<T> implements Iterator<T> {
 
   @Override
   public void remove() throws UnsupportedOperationException {
-    throw new UnsupportedOperationException();
+    this.q.values[index - 1] = null;
+    
   } // remove()
 } // ArrayBasedQueueIterator<T>
